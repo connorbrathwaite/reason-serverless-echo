@@ -1,0 +1,12 @@
+{
+	"name": "reason-aws-lamda",
+	"sources": ["."],
+	"package-specs": {
+		"module": "commonjs",
+		"in-source": true
+	},
+	"suffix": ".bs.js",
+	"bs-dependencies": ["@ahrefs/bs-aws-lambda"],
+	"bsc-flags": ["-bs-super-errors"],
+	"refmt": 3
+}

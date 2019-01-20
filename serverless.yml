@@ -1,0 +1,32 @@
+service:
+  name: example
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-east-2
+  stage: dev
+
+functions:
+  echo:
+    memorySize: 256
+    timeout: 29
+    handler: echo.handler
+    events:
+      - http:
+          method: post
+          path: /echo
+          authorizer:
+            name: auth
+            resultTtlInSeconds: 0
+            type: request
+            identitySource: method.request.querystring.token
+            identityValidationExpression: '[a-zA-Z0-9._-]+'
+  auth:
+    handler: auth.handle
