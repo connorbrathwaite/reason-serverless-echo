@@ -10,7 +10,7 @@
 	"devDependencies": {
 		"serverless-offline": "4.1.4",
 		"serverless-webpack": "5.2.0",
-		"webpack": "4.28.4"
+		"webpack": "4.29.0"
 	},
 	"scripts": {
 		"build": "bsb -make-world",
