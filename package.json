@@ -1,20 +1,20 @@
 {
-	"name": "reason-aws-lamda",
-	"version": "1.0.0",
-	"main": "echo.bs.js",
-	"license": "MIT",
-	"dependencies": {
-		"@ahrefs/bs-aws-lambda": "^1.0.0",
-		"bs-platform": "^4.0.18"
-	},
-	"devDependencies": {
-		"serverless-offline": "^4.1.4",
-		"serverless-webpack": "^5.2.0",
-		"webpack": "^4.28.4"
-	},
-	"scripts": {
-		"build": "bsb -make-world",
-		"watch": "bsb -make-world -w",
-		"clean": "bsb -clean-world"
-	}
+  "name": "reason-aws-lamda",
+  "version": "1.0.0",
+  "main": "echo.bs.js",
+  "license": "MIT",
+  "dependencies": {
+    "@ahrefs/bs-aws-lambda": "^1.0.0",
+    "bs-platform": "^4.0.18"
+  },
+  "devDependencies": {
+    "serverless-offline": "^4.1.4",
+    "serverless-webpack": "^5.2.0",
+    "webpack": "^4.28.4"
+  },
+  "scripts": {
+    "build": "bsb -make-world",
+    "watch": "bsb -make-world -w",
+    "clean": "bsb -clean-world"
+  }
 }

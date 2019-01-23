@@ -4,30 +4,29 @@ let handler: AwsLambda.APIGatewayProxy.handler =
     let parameter =
       event
       |. Event.queryStringParametersGet
-      /* andThen : ('a -> 'b option [@bs]) -> 'a option -> 'b option */
-      /* get dict key returns None if the key is not found in the dictionary, Some value otherwise */
       |> Js.Option.andThen((. params) => Js.Dict.get(params, "userid"));
     switch (parameter) {
-    | Some(userid) => Js.log2("[Debug] Executing lambda for", userid)
-    | None => Js.log("[Debug] Executing lambda for anonymous user")
+    | Some(userid) => Js.log2("[DEBUG]: Executing lambda for", userid)
+    | None => Js.log("[DEBUG]: Executing lambda for anonymous user")
     };
     let result =
       switch (event |. Event.bodyGet) {
       | None =>
-        Js.log("[Error] Empty event payload");
+        Js.log("[ERROR]: No body available in the request");
         result(
-          ~body=`Plain({|{"status": "Empty event payload"}|}),
+          ~body=`Plain({|{"status": "No body available in the request"}|}),
           ~statusCode=400,
           (),
         );
       | Some(body) =>
+        Js.log("[DEBUG]: Body " ++ body);
+        Js.log(event |. Event.isBase64EncodedGet);
         Result.make(
-          ~body,
-          /* TOFIX */
-          /* ~headers=Js_dict.t(Js.Json.t), */
-          ~isBase64Encoded=event |. Event.isBase64EncodedGet,
           ~statusCode=200,
-        )
+          ~body,
+          ~isBase64Encoded=event |. Event.isBase64EncodedGet,
+          (),
+        );
       };
     cb(Js.null, result);
     Js.Promise.resolve();

@@ -10,7 +10,7 @@ custom:
 provider:
   name: aws
   runtime: nodejs8.10
-  region: eu-east-2
+  region: us-east-2
   stage: dev
 
 functions:
