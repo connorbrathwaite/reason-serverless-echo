@@ -5,7 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "@ahrefs/bs-aws-lambda": "^1.0.0",
-    "bs-platform": "^4.0.18"
+    "bs-platform": "^5.0.0"
   },
   "devDependencies": {
     "serverless-offline": "^4.1.4",
